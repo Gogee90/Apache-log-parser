@@ -1,55 +1,53 @@
-{% extends 'log_parser/index.html' %}
-
-{% block content %}
+{% extends 'log_parser/index.html' %} {% block content %}
 <div class="row">
-    <form action="{% url 'logs-list' %}">
-        <div class="col s3">
-            <label for="start_date">Start date:</label>
-            <input type="date" id="start_date" name="start_date">
-        </div>
-        <div class="col s3">
-            <label for="end_date">End date:</label>
-            <input type="date" id="end_date" name="end_date">
-        </div>
-        <div class="col s3">
-            <label for="amount">IP Address:</label>
-            <input type="text" id="ip_address" name="ip_address">
-        </div>
-        <div class="col s3" style="margin-top: 45px;">
-            <input type="submit">
-        </div>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Bytes Sent</th>
-                <th>Referer</th>
-                <th>User Agent</th>
-                <th>Remote Host</th>
-                <th>Remote Log Name</th>
-                <th>Remote User</th>
-                <th>Request Line</th>
-                <th>Final Status</th>
-                <th>Request Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for data in log %}
-            <tr>
-                <td>{{ data.id }}</td>
-                <td>{{ data.bytes_sent }}</td>
-                <td>{{ data.referer }}</td>
-                <td>{{ data.user_agent }}</td>
-                <td>{{ data.remote_host }}</td>
-                <td>{{ data.remote_logname }}</td>
-                <td>{{ data.remote_user }}</td>
-                <td>{{ data.request_line }}</td>
-                <td>{{ data.final_status }}</td>
-                <td>{{ data.request_time }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <form action="{% url 'logs-list' %}">
+    <div class="col s3">
+      <label for="start_date">Start date:</label>
+      <input type="date" id="start_date" name="start_date" />
+    </div>
+    <div class="col s3">
+      <label for="end_date">End date:</label>
+      <input type="date" id="end_date" name="end_date" />
+    </div>
+    <div class="col s3">
+      <label for="amount">IP Address:</label>
+      <input type="text" id="ip_address" name="ip_address" />
+    </div>
+    <div class="col s3" style="margin-top: 45px">
+      <input type="submit" />
+    </div>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bytes Sent</th>
+        <th>Referer</th>
+        <th>User Agent</th>
+        <th>Remote Host</th>
+        <th>Remote Log Name</th>
+        <th>Remote User</th>
+        <th>Request Line</th>
+        <th>Final Status</th>
+        <th>Request Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in log %}
+      <tr>
+        <td>{{ data.id }}</td>
+        <td>{{ data.bytes_sent }}</td>
+        <td>{{ data.referer }}</td>
+        <td>{{ data.user_agent }}</td>
+        <td>{{ data.remote_host }}</td>
+        <td>{{ data.remote_logname }}</td>
+        <td>{{ data.remote_user }}</td>
+        <td>{{ data.request_line }}</td>
+        <td>{{ data.final_status }}</td>
+        <td>{{ data.request_time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

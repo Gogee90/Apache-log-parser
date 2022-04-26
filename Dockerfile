@@ -1,4 +1,4 @@
-FROM python:3.9.9-slim-bullseye
+FROM python:3.8-slim-bullseye
 
 WORKDIR /home/user/apache_log_parser
 
