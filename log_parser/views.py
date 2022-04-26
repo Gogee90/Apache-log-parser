@@ -20,6 +20,7 @@ class ApacheLogView(LoginRequiredMixin, ListView):
 
 
 class ApacheLogAPIView(LoginRequiredMixin, ListAPIView):
+    model = ApacheLogs
     serializer_class = ApacheLogSerializer
     login_url = "dj-rest-auth/login/"
 
