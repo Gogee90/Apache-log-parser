@@ -11,7 +11,7 @@ class ApacheLogView(LoginRequiredMixin, ListView):
     login_url = "account/login/"
 
     def get_queryset(self):
-        return self.model.search_fields(**self.request.GET)
+        return self.model.filter_by(**self.request.GET)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -25,4 +25,4 @@ class ApacheLogAPIView(LoginRequiredMixin, ListAPIView):
     login_url = "dj-rest-auth/login/"
 
     def get_queryset(self):
-        return self.model.search_fields(**self.request.GET)
+        return self.model.filter_by(**self.request.GET)

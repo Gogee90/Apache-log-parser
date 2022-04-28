@@ -1,7 +1,4 @@
-import time
-from wsgiref.util import request_uri
 from django.db import models
-from datetime import date, datetime
 
 
 # Create your models here.
@@ -55,7 +52,7 @@ class ApacheLogs(models.Model):
         return f"{self.remote_host} {self.request_time} {self.final_status}"
 
     @classmethod
-    def search_fields(cls, **kwargs):
+    def filter_by(cls, **kwargs):
         queryset = cls.objects.all()
         if kwargs:
             start_date, end_date, ip_address = kwargs.values()
